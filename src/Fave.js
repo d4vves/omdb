@@ -14,7 +14,7 @@ const Fave = (props) => {
     }
 
     return (
-        <div className={`film-row-fave ${toggle}`} onClick={(e) => handleClick(e)}>
+        <div className={`film-row-fave ${toggle}`} onClick={handleClick}>
             <p className="material-icons">{toggle}</p>
         </div>
     );

@@ -4,7 +4,6 @@ import FilmRow from './FilmRow'
 const FilmListing = (props) => {
     const [filter, setFilter] = useState('all')
     const [faves, setFaves] = useState([])
-    const filmsToDisplay = filter === 'all' ? props.films : faves
 
     const handleFavToggle = (film) => {
         let newFaves = [...faves]
@@ -17,6 +16,8 @@ const FilmListing = (props) => {
         setFaves(newFaves)
     }
 
+    const filmsToDisplay = filter === 'all' ? props.films : faves
+
     const allFilms = filmsToDisplay.map((film, i) => {
         return <FilmRow
                     film={film}
@@ -24,7 +25,7 @@ const FilmListing = (props) => {
                     onFaveToggle={handleFavToggle}
                     isFave={faves.includes(film)}
                     handleDetailsClick={props.handleDetailsClick}
-                    />
+                />
     })
 
     return (
